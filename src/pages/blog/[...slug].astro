@@ -1,0 +1,21 @@
+---
+import { render, getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+// 2. When it's time to render, you can get the entry directly from the prop
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Content />
