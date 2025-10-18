@@ -1,5 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
@@ -7,9 +9,11 @@ import BaseHead from "../components/BaseHead.astro";
     <BaseHead title="Home" description="A blog about cross stitch" />
   </head>
 
-  <body>
+  <body class="bg-gradient">
+    <Header />
     <h1>Suzza Stitches</h1>
     <p>The five boxing wizards jump quickly</p>
+    <Footer />
   </body>
 </html>
 

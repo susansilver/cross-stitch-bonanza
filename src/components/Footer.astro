@@ -1,0 +1,20 @@
+<footer id="colophon">
+  <div>
+    <div>
+      &copy; <span id="copy"></span>
+    </div>
+    <div></div>
+  </div>
+</footer>
+
+<script>
+  const copyElement = document.querySelector("#copy");
+
+  if (copyElement !== null) {
+    (copyElement as HTMLElement).textContent = new Date()
+      .getFullYear()
+      .toString();
+  } else {
+    console.error('Element with ID "copy" not found.');
+  }
+</script>
