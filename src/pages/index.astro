@@ -1,16 +1,23 @@
 ---
-
+import BaseHead from "../components/BaseHead.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <BaseHead title="Home" description="From Math Anxiety to Math Confidence" />
+  </head>
+
+  <body>
+    <h1>Suzza Stitches</h1>
+    <p>The five boxing wizards jump quickly</p>
+  </body>
 </html>
+
+<style>
+  h1 {
+    font-family: var(--font-solider);
+  }
+  p {
+    font-family: var(--font-abordage);
+  }
+</style>

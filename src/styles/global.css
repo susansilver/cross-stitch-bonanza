@@ -262,7 +262,8 @@ h3,
 .lar {
   font-size: 1.563rem;
 }
-.med {
+.med,
+p {
   font-size: 1.25rem;
 }
 .sma {

@@ -1,0 +1,86 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import "./src/styles/global.css";
+import { Font } from "astro:assets";
+
+import { SITE_TITLE } from "./src/consts";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = "" } = Astro.props;
+---
+
+<!doctype html>
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/favicon/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/favicon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/favicon/favicon-16x16.png"
+/>
+<link rel="manifest" href="/favicon/site.webmanifest" />
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- RSS Feed Discovery -->
+<!-- <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" /> -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Beauty of Mathematics"
+  href={`${Astro.site}rss.xml`}
+/>
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Primary Meta Tags -->
+<title>{title} - {SITE_TITLE}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<meta
+  name="Copyright"
+  content="Copyright © Susan Silver 22025. All Rights Reserved."
+/>
+
+<meta name="theme-color" content="#D6BDE2" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Fonts -->
+<Font cssVariable="--font-solider" preload />
+<Font cssVariable="--font-abordage" preload />
