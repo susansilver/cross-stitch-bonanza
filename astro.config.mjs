@@ -5,10 +5,12 @@ import mdx from "@astrojs/mdx";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import og from "astro-og";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://suzzastitches.com",
-  integrations: [mdx()],
+  integrations: [mdx(), og()],
 
   vite: {
     plugins: [tailwindcss()],

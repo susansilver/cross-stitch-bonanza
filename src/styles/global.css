@@ -259,11 +259,11 @@ h2,
 }
 
 h3,
-.lar {
+.lar,
+p {
   font-size: 1.563rem;
 }
-.med,
-p {
+.med {
   font-size: 1.25rem;
 }
 .sma {
