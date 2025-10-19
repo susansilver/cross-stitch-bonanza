@@ -7,10 +7,20 @@ import tailwindcss from "@tailwindcss/vite";
 
 import og from "astro-og";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://suzzastitches.com",
-  integrations: [mdx(), og()],
+  integrations: [
+    mdx(),
+    og(),
+
+    playformCompress({
+      Image: false,
+      SVG: false,
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],

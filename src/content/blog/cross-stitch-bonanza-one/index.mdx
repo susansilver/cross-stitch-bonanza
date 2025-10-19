@@ -20,7 +20,7 @@ language: "English" # (String as you like)
 comment: true # (set false will disable comment, even if you've enabled it in site-config)
 ---
 
-import BlogImage from "./src/components/BlogImage.astro";
+import BlogImage from "../../../components/BlogImage.astro";
 import dragon from "./img/floral-dragon-meadow-sal-part-one-complete.jpg";
 import gambit from "./img/long-dog-sampler-opening-gambit-new-start.jpg";
 import book from "./img/stichers-081725.jpg";
@@ -48,7 +48,7 @@ took me about two weeks to complete 3,552 stitches. I averaged
 about 300 a day. Here is the completed piece.
 
 <BlogImage
-  src={dragon}
+  remote={dragon}
   alt="image of a pink and white cherry blossom dragon in a meadow with flowers"
   caption="A beautiful Cherry Blossom dragon"
 />
@@ -71,7 +71,7 @@ pattern to me. There is one with a Tapir in it and that is also calling me.
 Here is my start for this month.
 
 <BlogImage
-  src={gambit}
+  remote={gambit}
   alt="image of a border in red variegated silk thread on white opalescent fabric"
   caption="The full top border of the Opening Gambit pattern in red and brown variegated silk thread"
 />
@@ -103,7 +103,7 @@ going to work on that for a week.
 This is where I left it as a reminder.
 
 <BlogImage
-  src={book}
+  remote={book}
   alt="Image of a bookshelf with famous authors and their popular books"
   caption="Authors from around the world sit on a bookshelf next to imagery from their books"
 />
@@ -113,7 +113,7 @@ Then, I'm going to move onto the Japan Quaker which is a gift for a friend.
 This is how it is going so far.
 
 <BlogImage
-  src={japan}
+  remote={japan}
   alt="image of a Quaker Sampler with Japanese motifs"
   caption="A Quaker with symbols of japan"
 />
@@ -129,7 +129,7 @@ my own needle minders out of enamel pins. And, I am a sucker
 for a dragon. I bought a few more pins from All the Dwagons.
 
 <BlogImage
-  src={dwagon}
+  remote={dwagon}
   alt="image of three enamel pins featuring Haku, Smaug, and Tiamat"
   caption="A trio of famous dragons"
 />
