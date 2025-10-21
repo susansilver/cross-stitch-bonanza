@@ -10,9 +10,16 @@ const { remote, alt, caption } = Astro.props;
     format="avif"
     quality="mid"
     alt={alt}
+    layout="full-width"
     class="full-width"
   />
-  <figcaption>
+  <figcaption class="med m-4 p-2 w-full">
     {caption}
   </figcaption>
 </figure>
+
+<style>
+  figcaption {
+    background-color: #ffbf00;
+  }
+</style>
