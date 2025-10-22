@@ -61,7 +61,7 @@ const projects = defineCollection({
           color: z.string().optional(),
         })
         .optional(),
-      progress: z.array(reference("blog")),
+      progress: z.array(reference("blog")).optional(),
     }),
 });
 
