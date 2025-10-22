@@ -49,6 +49,7 @@ const projects = defineCollection({
       // Required
       title: z.string().max(60),
       description: z.string().max(160),
+      startDate: z.coerce.date(),
       thumbnail: z
         .object({
           src: image(),
