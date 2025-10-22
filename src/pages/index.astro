@@ -15,7 +15,7 @@ import { Image } from "astro:assets";
     <BaseHead title="Home" description="A blog about cross stitch" />
   </head>
 
-  <body class="bg-gradient">
+  <body class="bg-gradient med">
     <Header />
     <h1>Suzza Stitches</h1>
     <p>The five boxing wizards jump quickly</p>
@@ -88,4 +88,24 @@ import { Image } from "astro:assets";
   color: #000; /* Grey text */
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
+}
+
+ h2 {
+    background-color: #000;
+    padding: 0.5em;
+    color: #fff;
+    max-width: fit-content;
+    position: relative;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    background-color: #000;
+    width: 75vw;
+    height: 2px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
 </style>
