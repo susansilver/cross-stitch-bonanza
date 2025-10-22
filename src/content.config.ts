@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z, reference } from "astro:content";
 import { glob } from "astro/loaders";
 
 function removeDupsAndLowerCase(array: string[]) {
@@ -36,19 +36,33 @@ const blog = defineCollection({
       draft: z.boolean().default(false),
       // Special fields
       comment: z.boolean().default(true),
+      projects: z.array(reference("projects")).optional(),
     }),
 });
 
-// const pattern = defineCollection({
-//   // Load Markdown and MDX files in the `src/content/blog/` directory.
-//   loader: glob({ base: './src/content/patterns', pattern: '**/*.{md,mdx}' }),
-//   // Required
-//   schema: ({ image }) =>
-//     z.object({
-//       // Required
-//       title: z.string().max(60)
-//     })
-// })
+const projects = defineCollection({
+  // Load Markdown and MDX files in the `src/content/blog/` directory.
+  loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
+  // Required
+  schema: ({ image }) =>
+    z.object({
+      // Required
+      title: z.string().max(60),
+      description: z.string().max(160),
+      thumbnail: z
+        .object({
+          src: image(),
+          alt: z.string().optional(),
+          inferSize: z.boolean().optional(),
+          width: z.number().optional(),
+          height: z.number().optional(),
+
+          color: z.string().optional(),
+        })
+        .optional(),
+      progress: z.array(reference("blog")),
+    }),
+});
 
 // Define docs collection
 // const docs = defineCollection({
@@ -66,4 +80,4 @@ const blog = defineCollection({
 //     })
 // })
 
-export const collections = { blog };
+export const collections = { blog, projects };
