@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 const projectPosts = await getCollection("projects");
+const blogPosts = await getCollection("blog");
 
 import { Image } from "astro:assets";
 ---
@@ -18,6 +19,7 @@ import { Image } from "astro:assets";
     <Header />
     <h1>Suzza Stitches</h1>
     <p>The five boxing wizards jump quickly</p>
+    <h2>WIPs</h2>
     <ul>
       {
         projectPosts.map((post) => (
@@ -36,6 +38,16 @@ import { Image } from "astro:assets";
               </p>
             )}
             <a href={`/projects/${post.id}`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <h2>Blog</h2>
+    <ul>
+      {
+        blogPosts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
           </li>
         ))
       }
