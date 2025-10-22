@@ -52,7 +52,7 @@ const projects = defineCollection({
       thumbnail: z
         .object({
           src: image(),
-          alt: z.string().optional(),
+          alt: z.string(),
           inferSize: z.boolean().optional(),
           width: z.number().optional(),
           height: z.number().optional(),
