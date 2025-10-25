@@ -19,11 +19,13 @@ import { Image } from "astro:assets";
 
   <body class="bg-gradient med">
     <Header />
-    <h1>Suzza Stitches</h1>
-    <p>The five boxing wizards jump quickly</p>
+   <main>
+    <div class="wrapper padding-y-xxl padding-x-xxl">
     <h2>WIPs</h2>
-    <div class="flex items-center justify-center">
-      <div>
+    <div class="flex items-center justify-center1
+   
+    ">
+      <div> 
         <ul>
                    {
             projectPosts.map((post) => (
@@ -66,6 +68,8 @@ import { Image } from "astro:assets";
       </div>
     </div>
     <Footer />
+  </div>
+    </main>
   </body>
 </html>
 
