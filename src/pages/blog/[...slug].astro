@@ -32,7 +32,7 @@ const { Content } = await render(post);
     <main>
       <article>
         <div
-          class="article-header flex flex-col justify-center items-center bg-white p-25"
+          class="article-header flex flex-col justify-center items-center bg-slate-200 p-25 text-shadow-black-900"
         >
           <div class="article-title">
             <h1>{post.data.title}</h1>
@@ -49,7 +49,7 @@ const { Content } = await render(post);
         </div>
         <div class="grid grid-cols-12 gap-4">
           <div class="col-span-2 bg-gradient"></div>
-          <div class="col-span-10 main-content">
+          <div class="col-span-10 main-content text-black-900 bg-white-50">
             <Content />
             <footer>
               <Footer />
@@ -72,9 +72,9 @@ const { Content } = await render(post);
   }
   h2,
   h1 {
-    background-color: #000;
+    background-color: #212121;
     padding: 0.5em;
-    color: #fff;
+    color: #fafafa;
     max-width: fit-content;
     position: relative;
   }
@@ -82,7 +82,7 @@ const { Content } = await render(post);
   h1::after {
     content: "";
     display: block;
-    background-color: #000;
+    background-color: #212121;
     width: 100vw;
     height: 2px;
     padding: 0;

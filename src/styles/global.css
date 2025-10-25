@@ -9,6 +9,10 @@
   --space-xxl: 2em;
 }
 
+@theme {
+  --color-white-50: #fafafa;
+  --color-black-900: #212121;
+}
 /* Margins */
 .margin-x-xs {
   margin-inline: var(--space-xs);
