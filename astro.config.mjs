@@ -11,6 +11,8 @@ import playformCompress from "@playform/compress";
 
 import rehypeExternalLinks from "rehype-external-links";
 
+import { remarkReadingTime } from "./src/remark-reading-time.mjs";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://suzzastitches.com",
@@ -56,6 +58,7 @@ export default defineConfig({
     ],
   },
   markdown: {
+    remarkPlugins: [remarkReadingTime],
     rehypePlugins: [
       [
         rehypeExternalLinks,
