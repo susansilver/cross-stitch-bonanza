@@ -4,7 +4,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-const projectPosts = await getCollection("projects");
+const projectPosts = await getCollection('projects', ({ data }) => {
+  return data.wip !== false;
+});
 const blogPosts = await getCollection("blog");
 
 import { Image } from "astro:assets";

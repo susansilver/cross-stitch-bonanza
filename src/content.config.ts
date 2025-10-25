@@ -49,7 +49,9 @@ const projects = defineCollection({
       // Required
       title: z.string().max(60),
       description: z.string().max(160),
+      wip: z.boolean().default(true),
       startDate: z.coerce.date(),
+      finishDate: z.coerce.date().optional(),
       thumbnail: z
         .object({
           src: image(),
@@ -61,7 +63,7 @@ const projects = defineCollection({
           color: z.string().optional(),
         })
         .optional(),
-      progress: z.array(reference("blog")).optional(),
+      progress: z.array(reference("blog")),
     }),
 });
 

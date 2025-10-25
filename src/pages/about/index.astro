@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets'
+
+import { Comment } from 'astro-pure/advanced'
+import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
+import PageLayout from '@/layouts/CommonPage.astro'
+import Substats from '@/components/about/Substats.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
+import suzzaAvatar from '@/assets/suzza-avatar.jpg'
+
+const headings = [
+  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
+  { depth: 2, slug: 'tools', text: 'Tools' },
+  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
+  { depth: 2, slug: 'gossips', text: 'Gossips' },
+  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+]
+---
+
+<PageLayout title='About' info='/about'>
+  <h2>What this is all about</h2>
+
+  <p>
+    Hi, welcome to Suzza Stitches. This is the place where I talk about cross stitching. It’s like a
+    Flosstube but more stationary. I’ll be sharing my Works in Progress (WIPs) and my finishes.
+    Maybe a few Fully Finished Objects (FFO). I take great joy in seeing other people’s stitching
+    and I’m sometimes inspired to take up new pieces. We are a community that likes to enable.
+  </p><p>
+    I’ll be sharing haul too! I love collecting fabric and patterns. I have more in my stash than I
+    will ever stitch. I might go through and share a few with you too. I’m hoping that if you like
+    what you see that you will leave a comment. Share your links to your Youtube or Instagram so we
+    can check out your work. Let me know what you are working on! I’m always interested in seeing
+    people’s work and their progress.
+  </p>
+
+  <h2>Who I am</h2>
+
+  <p>
+    <Image
+      src={suzzaAvatar}
+      alt='Profile Picture for Suzza Silver'
+      class='h-50 w-auto rounded-full border p-1 float-right'
+      loading='eager'
+    />
+
+    I am Suzza, a person who has made an income from the internet since about 2011. I started as
+    freelance writer and worked my way into Community Management. Community managers are the one
+    that post, respond, and moderate communities. I often explain it as this. If you Tweet at Coca
+    Cola, and someone responds to you, it is probably a community manager. You will mostly find us
+    in forums but sometimes on social media as well.
+  </p><p>
+    My first love is blogging though. I have a writing style that is well suited to the medium. I’ve
+    always found success when I write. I’m working on trying to get published in a proper
+    publication. Hoping to make the leap into more serious journalism. I’m currently working on a
+    project about the mathematician GH Hardy. He is my favorite and I believe that he is
+    misunderstood. I’m hoping to write something that will help people see him in a new way. As
+    warmly as I do.
+  </p>
+
+  <h2>Follow Along</h2>
+
+  If any of this interests you, please consider subscribing via the <a href='/rss.xml'>RSS feed</a>.
+  I’m not big on using a newsletter when all I want to share is a blog post. If you aren’t familiar
+  with RSS feeds, <a href='https://aboutfeeds.com/' target='_blank'>here is an introduction</a> that
+  will explain what they are and how to use an RSS reader.
+</PageLayout>
