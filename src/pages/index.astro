@@ -4,10 +4,18 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-const projectPosts = await getCollection('projects', ({ data }) => {
+const projectWips = await getCollection('projects', ({ data }) => {
   return data.wip !== false;
 });
+
+const projectFinishes = await getCollection('projects', ({ data }) => {
+  return data.wip !== true;
+});
+
+
+
 const blogPosts = await getCollection("blog");
+const tags = [...new Set(blogPosts.map((post: any) => post.data.tags).flat())];
 
 import { Image } from "astro:assets";
 ---
@@ -23,11 +31,65 @@ import { Image } from "astro:assets";
     <div class="wrapper padding-y-xxl padding-x-xxl">
     <h2>WIPs</h2>
     <div>
-      <div> 
         <ul>
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-wrap gap-6">
                    {
-            projectPosts.map((post) => (
+            projectWips.map((post) => (
+               
+              <li>
+                <div class="container">           
+                  
+                   {post.data.thumbnail && (
+                  <p>
+                    
+                    <Image
+                      src={post.data.thumbnail.src}
+                      format="jpg"
+                      quality="high"
+                      width="300"
+                      height="500"
+                      alt={post.data.thumbnail.alt}
+                      layout="full-width"
+                      style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;"
+                    />
+                  </p>
+                )}
+              <div class="content">  <a href={`/projects/${post.id}`}>{post.data.title}</a></div>  
+              </li></div>
+            ))
+          }</div>
+        </ul>
+     </div>
+    <div class="flex gap-4">
+      <div class="flex-1"> 
+        <h2>Blog</h2>
+        <ul>
+          {
+            blogPosts.map((post) => (
+              <li>
+                <a href={`/blog/${post.id}`}>{post.data.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="flex-1">
+<h2>Topics</h2>
+   <ul>
+     
+       {tags.map((tag) => (
+      <li><a href={`/tags/${tag}`}>{tag}</a></li>
+    ))}
+   </ul>
+      </div>
+  </div>
+  <div>
+    <h2>Finishes</h2>
+    <div>
+      <ul>
+          <div class="flex flex-wrap gap-6">
+                   {
+            projectFinishes.map((post) => (
               <div>
               <li>
                 <div class="container">           
@@ -53,21 +115,7 @@ import { Image } from "astro:assets";
           }</div>
         </ul>
       </div>
-    </div>
-    <h2>Blog</h2>
-    <div class="flex items-center justify-center">
-      <div>
-        <ul>
-          {
-            blogPosts.map((post) => (
-              <li>
-                <a href={`/blog/${post.id}`}>{post.data.title}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
+  </div>  
     <Footer />
   </div>
     </main>
@@ -108,7 +156,7 @@ import { Image } from "astro:assets";
     content: "";
     display: block;
     background-color: #000;
-    width: 75vw;
+    width: 100vw;
     height: 2px;
     padding: 0;
     position: absolute;
